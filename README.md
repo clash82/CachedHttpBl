@@ -1,6 +1,8 @@
 Cached http:BL PHP library
 ==========================
 
+[![Build Status](https://travis-ci.org/clash82/CachedHttpBl.svg?branch=master)](https://travis-ci.org/clash82/CachedHttpBl)
+
 Author: [Rafał Toborek](http://toborek.info)
 
 Cached http:BL is a PHP5 library that allows to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
