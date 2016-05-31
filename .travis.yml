@@ -1,0 +1,32 @@
+language: php
+
+sudo: false
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+
+branches:
+  only:
+    - master
+
+before_script:
+  # disable xdebug
+  - phpenv config-rm xdebug.ini
+  # update composer to newest version
+  - composer self-update
+  # increase memory limit for composer
+  - echo "memory_limit=3072M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  # install packages using composer
+  - composer install --prefer-dist
+
+script: "php -d memory_limit=-1 vendor/bin/phpunit"
+
+# disable mail notifications
+notification:
+  email: false
+
+# reduce depth (history) of git checkout
+git:
+  depth: 30
