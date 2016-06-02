@@ -24,7 +24,7 @@ before_script:
 script: "php -d memory_limit=-1 vendor/bin/phpunit"
 
 # disable mail notifications
-notification:
+notifications:
   email: false
 
 # reduce depth (history) of git checkout
