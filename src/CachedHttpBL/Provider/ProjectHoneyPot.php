@@ -27,9 +27,6 @@ class ProjectHoneyPot implements Provider
         $this->httpBlApiKey = $httpBlApiKey;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function query($ip)
     {
         $lookupResult = $this->lookup($ip);

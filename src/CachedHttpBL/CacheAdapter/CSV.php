@@ -69,18 +69,12 @@ class CSV implements CacheAdapter
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function addResponse(Response $response)
     {
         $ip = $response->getIP();
         $this->responseCollection[$ip] = $response;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function responseExists($ip)
     {
         if (array_key_exists($ip, $this->responseCollection)) {
@@ -90,9 +84,6 @@ class CSV implements CacheAdapter
         return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getResponse($ip)
     {
         if (!array_key_exists($ip, $this->responseCollection)) {
@@ -102,17 +93,11 @@ class CSV implements CacheAdapter
         return $this->responseCollection[$ip];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function clearCache()
     {
         $this->responseCollection = array();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function writeCache()
     {
         $responseData = '';

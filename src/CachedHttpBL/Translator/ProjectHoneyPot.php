@@ -16,25 +16,16 @@ class ProjectHoneyPot implements Translator
     /** @var \CachedHttpBL\Response */
     private $response;
 
-    /**
-     * {@inheritdoc}
-     */
     public function translate(Response $response)
     {
         $this->response = $response;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getActivityDescription()
     {
         return sprintf('last seen %d day(s) ago', $this->response->getActivity());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getThreatDescription()
     {
         $threat = $this->response->getThreat();
@@ -50,9 +41,6 @@ class ProjectHoneyPot implements Translator
         return '1,000,000 [msg/day]';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTypeMeaningDescription()
     {
         switch ($this->response->getTypeMeaning()) {

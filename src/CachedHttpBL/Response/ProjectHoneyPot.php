@@ -50,49 +50,31 @@ class ProjectHoneyPot implements Response
         $this->activity = $activity;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getIP()
     {
         return $this->ip;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTime()
     {
         return $this->time;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getType()
     {
         return $this->type;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getThreat()
     {
         return $this->threat;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTypeMeaning()
     {
         return $this->typeMeaning;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getActivity()
     {
         return $this->activity;

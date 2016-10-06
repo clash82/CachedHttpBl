@@ -14,41 +14,26 @@ use CachedHttpBL\Exception\ResponseNotExists;
  */
 class BlackHole implements CacheAdapter
 {
-    /**
-     * {@inheritdoc}
-     */
     public function addResponse(Response $response)
     {
         // do nothing
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function responseExists($ip)
     {
         return false;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getResponse($ip)
     {
         throw new ResponseNotExists($ip);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function clearCache()
     {
         // do nothing
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function writeCache()
     {
         // do nothing
