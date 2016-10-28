@@ -2,6 +2,7 @@ Cached http:BL PHP library
 ==========================
 
 [![Build Status](https://travis-ci.org/clash82/CachedHttpBl.svg?branch=master)](https://travis-ci.org/clash82/CachedHttpBl)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/72582f01-525e-48cb-8f87-10b45b903d9c/mini.png)](https://insight.sensiolabs.com/projects/72582f01-525e-48cb-8f87-10b45b903d9c)
 
 Author: [Rafał Toborek](http://toborek.info)
 
