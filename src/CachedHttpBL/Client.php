@@ -24,9 +24,6 @@ class Client
     /** @var string */
     private $version = '2.0.0';
 
-    /** @var string */
-    private $httpBlApiKey;
-
     /** @var \CachedHttpBL\CacheAdapter */
     private $adapter;
 
@@ -41,7 +38,6 @@ class Client
      */
     public function __construct($httpBlApiKey, CacheAdapter $adapter)
     {
-        $this->httpBlApiKey = $httpBlApiKey;
         $this->adapter = $adapter;
         $this->provider = new ProjectHoneyPotProvider($httpBlApiKey);
     }
