@@ -18,19 +18,6 @@ class Memory implements CacheAdapter
     /** @var array */
     private $responseCollection = array();
 
-    /** @var int */
-    private $cacheLifeTimeInHours;
-
-    /**
-     * Constructs Memory cache adapter object.
-     *
-     * @param int $cacheLifeTimeInHours
-     */
-    public function __construct($cacheLifeTimeInHours = 24)
-    {
-        $this->cacheLifeTimeInHours = $cacheLifeTimeInHours;
-    }
-
     public function addResponse(Response $response)
     {
         $ip = $response->getIP();
