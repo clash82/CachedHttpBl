@@ -34,7 +34,7 @@ class ProjectHoneyPot implements Translator
             return '100 [msg/day]';
         }
 
-        if ($threat > 25 & $threat < 51) {
+        if ($threat > 25 && $threat < 51) {
             return '10,000 [msg/day]';
         }
 
