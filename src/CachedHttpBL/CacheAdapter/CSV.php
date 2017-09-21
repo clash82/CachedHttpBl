@@ -59,7 +59,7 @@ class CSV implements CacheAdapter
             if ($responseData[1] >= $cacheLifetimeTimestamp) { // do not load outdated data
                 $this->addResponse(new ProjectHoneyPot(
                     long2ip($responseData[0]),
-                    trim($responseData[1]),
+                    (int)trim($responseData[1]),
                     empty($responseData[2]) ? null : $responseData[2],
                     empty($responseData[2]) ? null : $responseData[3],
                     empty($responseData[2]) ? null : $responseData[4],
