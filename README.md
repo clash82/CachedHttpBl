@@ -5,6 +5,7 @@ Cached http:BL PHP library
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/72582f01-525e-48cb-8f87-10b45b903d9c/mini.png)](https://insight.sensiolabs.com/projects/72582f01-525e-48cb-8f87-10b45b903d9c)
 [![Code Climate](https://codeclimate.com/github/clash82/CachedHttpBl/badges/gpa.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
 [![Issue Count](https://codeclimate.com/github/clash82/CachedHttpBl/badges/issue_count.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/?branch=master)
 
 Author: [Rafał Toborek](http://toborek.info)
 
