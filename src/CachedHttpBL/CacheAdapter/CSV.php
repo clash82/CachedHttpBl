@@ -56,14 +56,14 @@ class CSV implements CacheAdapter
         foreach ($cache as $line) {
             $responseData = explode(';', $line);
 
-            if ($responseData['1'] >= $cacheLifetimeTimestamp) { // do not load outdated data
+            if ($responseData[1] >= $cacheLifetimeTimestamp) { // do not load outdated data
                 $this->addResponse(new ProjectHoneyPot(
-                    long2ip($responseData['0']),
-                    trim($responseData['1']),
-                    empty($responseData['2']) ? null : $responseData['2'],
-                    empty($responseData['2']) ? null : $responseData['3'],
-                    empty($responseData['2']) ? null : $responseData['4'],
-                    empty($responseData['2']) ? null : $responseData['5']
+                    long2ip($responseData[0]),
+                    trim($responseData[1]),
+                    empty($responseData[2]) ? null : $responseData[2],
+                    empty($responseData[2]) ? null : $responseData[3],
+                    empty($responseData[2]) ? null : $responseData[4],
+                    empty($responseData[2]) ? null : $responseData[5]
                 ));
             }
         }
