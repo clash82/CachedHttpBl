@@ -2,7 +2,6 @@
 
 namespace CachedHttpBL;
 
-use CachedHttpBL\CacheAdapter;
 use CachedHttpBL\Provider\ProjectHoneyPot as ProjectHoneyPotProvider;
 
 /**

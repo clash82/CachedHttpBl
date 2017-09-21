@@ -2,8 +2,6 @@
 
 namespace CachedHttpBL;
 
-use CachedHttpBL\Response;
-
 /**
  * Interface for the CachedHttpBL translator.
  *
