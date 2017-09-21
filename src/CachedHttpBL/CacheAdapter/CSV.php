@@ -103,8 +103,13 @@ class CSV implements CacheAdapter
         $responseData = '';
 
         foreach ($this->responseCollection as $response) {
+            $responseEntry = sprintf('%d;%d'.PHP_EOL,
+                ip2long($response->getIP()),
+                $response->getTime()
+            );
+
             if ($response->getType() == '127') {
-                $responseData .= sprintf('%d;%d;%d;%d;%d;%d'.PHP_EOL,
+                $responseEntry = sprintf('%d;%d;%d;%d;%d;%d'.PHP_EOL,
                     ip2long($response->getIP()),
                     $response->getTime(),
                     $response->getType(),
@@ -112,12 +117,9 @@ class CSV implements CacheAdapter
                     $response->getTypeMeaning(),
                     $response->getActivity()
                 );
-            } else {
-                $responseData .= sprintf('%d;%d'.PHP_EOL,
-                    ip2long($response->getIP()),
-                    $response->getTime()
-                );
             }
+
+            $responseData .= $responseEntry;
         }
 
         if (file_put_contents($this->cacheFileName, $responseData) === false) {
