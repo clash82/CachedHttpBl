@@ -7,9 +7,11 @@ Cached http:BL PHP library
 [![Issue Count](https://codeclimate.com/github/clash82/CachedHttpBl/badges/issue_count.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/?branch=master)
 
-Author: [Rafał Toborek](http://toborek.info)
+Author: [Rafał Toborek](https://toborek.info)
 
-Cached http:BL is a PHP5 library that allows to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
+Cached http:BL is a PHP >=7.2 library that allows to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
+
+_Note: If you still need to support PHP 5 or PHP <7.2 version then install version 2.x. of this library._
 
 Why use http:BL service?
 ------------------------
@@ -27,7 +29,7 @@ Try it!
 Stable version:
 
 ```bash
-$ php composer.phar require clash82/cachedhttpbl:2.*
+$ php composer.phar require clash82/cachedhttpbl:3.*
 ```
 
 Here is an example of how to use library with CSV cache adapter:
@@ -97,6 +99,9 @@ $ phpunit
 
 Change log
 ----------
+
+[v3.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v3.0.0):
+- dropped support for PHP 5.x
 
 [v2.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v2.0.0):
 - added PSR-2 coding standards,
