@@ -1,20 +1,21 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\Functional\Provider;
 
 use CachedHttpBL\Provider\ProjectHoneyPot;
+use PHPUnit\Framework\TestCase;
 
-class ProjectHoneyPotTest extends \PHPUnit_Framework_TestCase
+class ProjectHoneyPotTest extends TestCase
 {
     private $provider;
 
-    public function setUp() {
+    public function setUp(): void {
         $this->provider = new ProjectHoneyPot('123457890');
     }
 
-    public function testQueryShouldBeEmpty()
+    public function testQueryShouldBeEmpty(): void
     {
-        $this->setExpectedException('CachedHttpBL\Exception\UnexpectedResponse');
+        $this->expectException('CachedHttpBL\Exception\UnexpectedResponse');
         $this->assertEquals('', $this->provider->query('127.0.0.1'));
     }
 }
