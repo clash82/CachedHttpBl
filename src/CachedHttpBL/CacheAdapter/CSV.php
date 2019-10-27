@@ -7,6 +7,7 @@ use CachedHttpBL\Exception\CacheNotWritable;
 use CachedHttpBL\Exception\ResponseNotExists;
 use CachedHttpBL\Response;
 use CachedHttpBL\Response\ProjectHoneyPot;
+use DateTime;
 
 /**
  * CSV file cache adapter.
@@ -47,7 +48,7 @@ class CSV implements CacheAdapter
             return;
         }
 
-        $cacheLifetimeTimestamp = (new \DateTime())
+        $cacheLifetimeTimestamp = (new DateTime())
             ->modify(sprintf('-%d hours', $this->cacheLifeTimeInHours))
             ->getTimestamp();
 
