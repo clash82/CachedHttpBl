@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL;
 
@@ -9,19 +9,19 @@ use CachedHttpBL\Provider\ProjectHoneyPot as ProjectHoneyPotProvider;
  *
  * This class performs http:BL service check for IPv4 address (with caching)
  * for more information about http:BL service visit project's home page at:
- * @link http://www.projecthoneypot.org
+ * @link https://www.projecthoneypot.org
  *
  * @package CachedHttpBL
- * @version 2.0.0
+ * @version 3.0.0
  * @author Rafał Toborek
- * @link http://toborek.info
- * @link http://github.com/clash82/cachedHttpBl/
- * @license http://www.gnu.org/licenses/gpl-3.0.txt
+ * @link https://toborek.info/about/
+ * @link https://github.com/clash82/cachedHttpBl/
+ * @license https://www.gnu.org/licenses/gpl-3.0.txt
  */
 class Client
 {
     /** @var string */
-    private $version = '2.0.0';
+    private $version = '3.0.0';
 
     /** @var \CachedHttpBL\CacheAdapter */
     private $adapter;
@@ -35,7 +35,7 @@ class Client
      * @param string $httpBlApiKey
      * @param \CachedHttpBL\CacheAdapter $adapter
      */
-    public function __construct($httpBlApiKey, CacheAdapter $adapter)
+    public function __construct(string $httpBlApiKey, CacheAdapter $adapter)
     {
         $this->adapter = $adapter;
         $this->provider = new ProjectHoneyPotProvider($httpBlApiKey);
@@ -46,7 +46,7 @@ class Client
      *
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -57,7 +57,7 @@ class Client
      * @param string $ip
      * @return \CachedHttpBL\Response
      */
-    public function checkIP($ip)
+    public function checkIP(string $ip): Response
     {
         if ($this->adapter->responseExists($ip)) {
             return $this->adapter->getResponse($ip);

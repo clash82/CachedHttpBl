@@ -1,6 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL;
+
+use CachedHttpBL\Response\ProjectHoneyPot;
 
 /**
  * Interface for the CachedHttpBL service provider.
@@ -17,5 +19,5 @@ interface Provider
      * @return \CachedHttpBl\Response\ProjectHoneyPot
      * @throws \CachedHttpBl\Exception\UnexpectedResponse if http:BL returns $type different than 127
      */
-    public function query($ip);
+    public function query(string $ip): ProjectHoneyPot;
 }

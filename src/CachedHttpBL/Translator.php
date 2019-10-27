@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL;
 
@@ -15,26 +15,26 @@ interface Translator
      *
      * @param Response $response
      */
-    public function translate(Response $response);
+    public function translate(Response $response): void;
 
     /**
      * Returns IP short activity description.
      *
      * @return string
      */
-    public function getActivityDescription();
+    public function getActivityDescription(): string;
 
     /**
      * Returns IP short threat description.
      *
      * @return string
      */
-    public function getThreatDescription();
+    public function getThreatDescription(): string;
 
     /**
      * Returns IP short type meaning description.
      *
      * @return string
      */
-    public function getTypeMeaningDescription();
+    public function getTypeMeaningDescription(): string;
 }

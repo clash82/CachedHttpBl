@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL;
 
@@ -13,30 +13,30 @@ interface Response
     /**
      * @return string
      */
-    public function getIP();
+    public function getIP(): string;
 
     /**
      * @return int
      */
-    public function getTime();
+    public function getTime(): int;
 
     /**
      * @return int
      */
-    public function getType();
+    public function getType(): int;
 
     /**
      * @return int
      */
-    public function getThreat();
+    public function getThreat(): int;
 
     /**
      * @return int
      */
-    public function getTypeMeaning();
+    public function getTypeMeaning(): int;
 
     /**
      * @return int
      */
-    public function getActivity();
+    public function getActivity(): int;
 }

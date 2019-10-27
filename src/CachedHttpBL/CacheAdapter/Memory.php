@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\CacheAdapter;
 
@@ -16,15 +16,15 @@ use CachedHttpBL\Exception\ResponseNotExists;
 class Memory implements CacheAdapter
 {
     /** @var array */
-    private $responseCollection = array();
+    private $responseCollection = [];
 
-    public function addResponse(Response $response)
+    public function addResponse(Response $response): void
     {
         $ip = $response->getIP();
         $this->responseCollection[$ip] = $response;
     }
 
-    public function responseExists($ip)
+    public function responseExists(string $ip): bool
     {
         if (array_key_exists($ip, $this->responseCollection)) {
             return true;
@@ -33,7 +33,7 @@ class Memory implements CacheAdapter
         return false;
     }
 
-    public function getResponse($ip)
+    public function getResponse(string $ip): Response
     {
         if (!array_key_exists($ip, $this->responseCollection)) {
             throw new ResponseNotExists($ip);
@@ -42,12 +42,12 @@ class Memory implements CacheAdapter
         return $this->responseCollection[$ip];
     }
 
-    public function clearCache()
+    public function clearCache(): void
     {
-        $this->responseCollection = array();
+        $this->responseCollection = [];
     }
 
-    public function writeCache()
+    public function writeCache(): void
     {
         // do nothing
     }

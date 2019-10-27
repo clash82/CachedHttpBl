@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\Response;
 
@@ -40,7 +40,7 @@ class ProjectHoneyPot implements Response
      * @param int $typeMeaning
      * @param int $activity
      */
-    public function __construct($ip, $time, $type, $threat, $typeMeaning, $activity)
+    public function __construct(string $ip, int $time, int $type, int $threat, int $typeMeaning, int $activity)
     {
         $this->ip = $ip;
         $this->time = $time;
@@ -50,32 +50,32 @@ class ProjectHoneyPot implements Response
         $this->activity = $activity;
     }
 
-    public function getIP()
+    public function getIP(): string
     {
         return $this->ip;
     }
 
-    public function getTime()
+    public function getTime(): int
     {
         return $this->time;
     }
 
-    public function getType()
+    public function getType(): int
     {
         return $this->type;
     }
 
-    public function getThreat()
+    public function getThreat(): int
     {
         return $this->threat;
     }
 
-    public function getTypeMeaning()
+    public function getTypeMeaning(): int
     {
         return $this->typeMeaning;
     }
 
-    public function getActivity()
+    public function getActivity(): int
     {
         return $this->activity;
     }

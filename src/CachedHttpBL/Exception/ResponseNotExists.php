@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\Exception;
 
@@ -11,7 +11,7 @@ class ResponseNotExists extends \RuntimeException implements Exception
 {
     private $key;
 
-    public function __construct($key, $code = 0, \Exception $previous = null)
+    public function __construct(string $key, int $code = 0, \Exception $previous = null)
     {
         $this->key = $key;
 
@@ -22,7 +22,7 @@ class ResponseNotExists extends \RuntimeException implements Exception
         );
     }
 
-    public function getKey()
+    public function getKey(): string
     {
         return $this->key;
     }

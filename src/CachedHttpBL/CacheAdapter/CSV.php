@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\CacheAdapter;
 
@@ -17,7 +17,7 @@ use CachedHttpBL\Exception\ResponseNotExists;
 class CSV implements CacheAdapter
 {
     /** @var array */
-    private $responseCollection = array();
+    private $responseCollection = [];
 
     /** @var string */
     private $cacheFileName;
@@ -31,7 +31,7 @@ class CSV implements CacheAdapter
      * @param string $cacheFileName
      * @param int $cacheLifeTimeInHours
      */
-    public function __construct($cacheFileName, $cacheLifeTimeInHours = 24)
+    public function __construct(string $cacheFileName, int $cacheLifeTimeInHours = 24)
     {
         $this->cacheFileName = $cacheFileName;
         $this->cacheLifeTimeInHours = $cacheLifeTimeInHours;
@@ -42,7 +42,7 @@ class CSV implements CacheAdapter
     /**
      * Loads response data from file.
      */
-    private function loadCache()
+    private function loadCache(): void
     {
         if (!file_exists($this->cacheFileName)) {
             return;
@@ -69,13 +69,13 @@ class CSV implements CacheAdapter
         }
     }
 
-    public function addResponse(Response $response)
+    public function addResponse(Response $response): void
     {
         $ip = $response->getIP();
         $this->responseCollection[$ip] = $response;
     }
 
-    public function responseExists($ip)
+    public function responseExists(string $ip): bool
     {
         if (array_key_exists($ip, $this->responseCollection)) {
             return true;
@@ -84,7 +84,7 @@ class CSV implements CacheAdapter
         return false;
     }
 
-    public function getResponse($ip)
+    public function getResponse(string $ip): Response
     {
         if (!array_key_exists($ip, $this->responseCollection)) {
             throw new ResponseNotExists($ip);
@@ -93,12 +93,12 @@ class CSV implements CacheAdapter
         return $this->responseCollection[$ip];
     }
 
-    public function clearCache()
+    public function clearCache(): void
     {
-        $this->responseCollection = array();
+        $this->responseCollection = [];
     }
 
-    public function writeCache()
+    public function writeCache(): void
     {
         $responseData = '';
 

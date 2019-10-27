@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\CacheAdapter;
 
@@ -14,27 +14,27 @@ use CachedHttpBL\Exception\ResponseNotExists;
  */
 class BlackHole implements CacheAdapter
 {
-    public function addResponse(Response $response)
+    public function addResponse(Response $response): void
     {
         // do nothing
     }
 
-    public function responseExists($ip)
+    public function responseExists(string $ip): bool
     {
         return false;
     }
 
-    public function getResponse($ip)
+    public function getResponse(string $ip): Response
     {
         throw new ResponseNotExists($ip);
     }
 
-    public function clearCache()
+    public function clearCache(): void
     {
         // do nothing
     }
 
-    public function writeCache()
+    public function writeCache(): void
     {
         // do nothing
     }

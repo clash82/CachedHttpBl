@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\Translator;
 
@@ -16,17 +16,17 @@ class ProjectHoneyPot implements Translator
     /** @var \CachedHttpBL\Response */
     private $response;
 
-    public function translate(Response $response)
+    public function translate(Response $response): void
     {
         $this->response = $response;
     }
 
-    public function getActivityDescription()
+    public function getActivityDescription(): string
     {
         return sprintf('last seen %d day(s) ago', $this->response->getActivity());
     }
 
-    public function getThreatDescription()
+    public function getThreatDescription(): string
     {
         $threat = $this->response->getThreat();
 
@@ -41,7 +41,7 @@ class ProjectHoneyPot implements Translator
         return '1,000,000 [msg/day]';
     }
 
-    public function getTypeMeaningDescription()
+    public function getTypeMeaningDescription(): string
     {
         switch ($this->response->getTypeMeaning()) {
             case 0:

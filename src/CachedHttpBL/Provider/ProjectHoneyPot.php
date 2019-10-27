@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace CachedHttpBL\Provider;
 
@@ -22,12 +22,12 @@ class ProjectHoneyPot implements Provider
      *
      * @param string $httpBlApiKey
      */
-    public function __construct($httpBlApiKey)
+    public function __construct(string $httpBlApiKey)
     {
         $this->httpBlApiKey = $httpBlApiKey;
     }
 
-    public function query($ip)
+    public function query(string $ip): Response\ProjectHoneyPot
     {
         $lookupResult = $this->lookup($ip);
 
@@ -55,7 +55,7 @@ class ProjectHoneyPot implements Provider
      * @param string $ip
      * @return string
      */
-    private function lookup($ip)
+    private function lookup(string $ip): string
     {
         $lookup = $this->httpBlApiKey.'.'.implode('.', array_reverse(explode('.', $ip))).'.dnsbl.httpbl.org';
         $result = gethostbyname($lookup);
