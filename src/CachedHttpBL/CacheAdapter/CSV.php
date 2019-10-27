@@ -60,10 +60,10 @@ class CSV implements CacheAdapter
                 $this->addResponse(new ProjectHoneyPot(
                     long2ip($responseData[0]),
                     (int) trim($responseData[1]),
-                    empty($responseData[2]) ? null : $responseData[2],
-                    empty($responseData[2]) ? null : $responseData[3],
-                    empty($responseData[2]) ? null : $responseData[4],
-                    empty($responseData[2]) ? null : $responseData[5]
+                    empty($responseData[2]) ? -1 : $responseData[2],
+                    empty($responseData[2]) ? -1 : $responseData[3],
+                    empty($responseData[2]) ? -1 : $responseData[4],
+                    empty($responseData[2]) ? -1 : $responseData[5]
                 ));
             }
         }
