@@ -7,7 +7,6 @@ use CachedHttpBL\Response;
 /**
  * ProjectHoneyPot's response.
  *
- * @package CachedHttpBL\Response
  * @author Rafał Toborek
  */
 class ProjectHoneyPot implements Response

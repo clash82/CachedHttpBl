@@ -2,16 +2,15 @@
 
 namespace CachedHttpBL\CacheAdapter;
 
-use CachedHttpBL\Response;
-use CachedHttpBL\Response\ProjectHoneyPot;
 use CachedHttpBL\CacheAdapter;
 use CachedHttpBL\Exception\CacheNotWritable;
 use CachedHttpBL\Exception\ResponseNotExists;
+use CachedHttpBL\Response;
+use CachedHttpBL\Response\ProjectHoneyPot;
 
 /**
  * CSV file cache adapter.
  *
- * @package CachedHttpBL\CacheAdapter
  * @author Rafał Toborek
  */
 class CSV implements CacheAdapter
@@ -128,6 +127,6 @@ class CSV implements CacheAdapter
 
         if (file_put_contents($this->cacheFileName, $responseData) === false) {
             throw new CacheNotWritable($this->cacheFileName);
-        };
+        }
     }
 }

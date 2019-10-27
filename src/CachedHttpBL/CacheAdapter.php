@@ -5,7 +5,6 @@ namespace CachedHttpBL;
 /**
  * Interface for the CachedHttpBL cache adapter.
  *
- * @package CachedHttpBL
  * @author Rafał Toborek
  */
 interface CacheAdapter

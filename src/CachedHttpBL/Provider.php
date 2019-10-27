@@ -7,7 +7,6 @@ use CachedHttpBL\Response\ProjectHoneyPot;
 /**
  * Interface for the CachedHttpBL service provider.
  *
- * @package CachedHttpBL
  * @author Rafał Toborek
  */
 interface Provider

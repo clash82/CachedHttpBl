@@ -5,7 +5,6 @@ namespace CachedHttpBL;
 /**
  * Interface for the CachedHttpBL response object.
  *
- * @package CachedHttpBL
  * @author Rafał Toborek
  */
 interface Response

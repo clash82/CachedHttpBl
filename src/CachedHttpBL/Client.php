@@ -11,7 +11,6 @@ use CachedHttpBL\Provider\ProjectHoneyPot as ProjectHoneyPotProvider;
  * for more information about http:BL service visit project's home page at:
  * @link https://www.projecthoneypot.org
  *
- * @package CachedHttpBL
  * @version 3.0.0
  * @author Rafał Toborek
  * @link https://toborek.info/about/

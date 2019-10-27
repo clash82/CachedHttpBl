@@ -2,14 +2,13 @@
 
 namespace CachedHttpBL\CacheAdapter;
 
-use CachedHttpBL\Response;
 use CachedHttpBL\CacheAdapter;
 use CachedHttpBL\Exception\ResponseNotExists;
+use CachedHttpBL\Response;
 
 /**
  * BlackHole cache adapter.
  *
- * @package CachedHttpBL\CacheAdapter
  * @author Rafał Toborek
  */
 class BlackHole implements CacheAdapter

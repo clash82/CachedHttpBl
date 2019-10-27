@@ -8,9 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 class CVSTest extends TestCase
 {
-    private $adapter, $response;
+    private $adapter;
+    private $response;
 
-    public function setUp(): void {
+    public function setUp(): void
+    {
         $this->adapter = new CSV('/tmp/csv_test.tmp');
         $this->response = new ProjectHoneyPotResponse('127.0.0.1', 0, 0, 0, 0, 0);
         $this->adapter->addResponse($this->response);

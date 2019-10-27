@@ -2,13 +2,12 @@
 
 namespace CachedHttpBL\Translator;
 
-use CachedHttpBL\Translator;
 use CachedHttpBL\Response;
+use CachedHttpBL\Translator;
 
 /**
  * ProjectHoneyPot's response translator.
  *
- * @package CachedHttpBL\Translator
  * @author Rafał Toborek
  */
 class ProjectHoneyPot implements Translator

@@ -9,7 +9,8 @@ class ProjectHoneyPotTest extends TestCase
 {
     private $provider;
 
-    public function setUp(): void {
+    public function setUp(): void
+    {
         $this->provider = new ProjectHoneyPot('123457890');
     }
 

@@ -9,7 +9,8 @@ class BlackHoleTest extends TestCase
 {
     private $adapter;
 
-    public function setUp(): void {
+    public function setUp(): void
+    {
         $this->adapter = new BlackHole();
     }
 
@@ -17,7 +18,6 @@ class BlackHoleTest extends TestCase
     {
         $this->assertEquals(false, $this->adapter->responseExists('127.0.0.1'));
     }
-
 
     public function testResponseIsInvalid(): void
     {

@@ -5,7 +5,6 @@ namespace CachedHttpBL;
 /**
  * Interface for the CachedHttpBL translator.
  *
- * @package CachedHttpBL
  * @author Rafał Toborek
  */
 interface Translator

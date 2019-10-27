@@ -2,14 +2,13 @@
 
 namespace CachedHttpBL\Provider;
 
+use CachedHttpBL\Exception\UnexpectedResponse;
 use CachedHttpBL\Provider;
 use CachedHttpBL\Response as Response;
-use CachedHttpBL\Exception\UnexpectedResponse;
 
 /**
  * ProjectHoneyPot's http:BL service client.
  *
- * @package CachedHttpBL\Client
  * @author Rafał Toborek
  */
 class ProjectHoneyPot implements Provider

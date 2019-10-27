@@ -2,15 +2,14 @@
 
 namespace CachedHttpBL\CacheAdapter;
 
-use CachedHttpBL\Response;
 use CachedHttpBL\CacheAdapter;
 use CachedHttpBL\Exception\ResponseNotExists;
+use CachedHttpBL\Response;
 
 /**
  * In memory cache adapter.
- * (this adapter prevents using caching)
+ * (this adapter prevents using caching).
  *
- * @package CachedHttpBL\CacheAdapter
  * @author Rafał Toborek
  */
 class Memory implements CacheAdapter

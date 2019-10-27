@@ -2,15 +2,16 @@
 
 namespace CachedHttpBL\Functional\CacheAdapter;
 
-use CachedHttpBL\Translator\ProjectHoneyPot as Translator;
 use CachedHttpBL\Response\ProjectHoneyPot as ProjectHoneyPotResponse;
+use CachedHttpBL\Translator\ProjectHoneyPot as Translator;
 use PHPUnit\Framework\TestCase;
 
 class ProjectHoneyPotTest extends TestCase
 {
     private $translator;
 
-    public function setUp(): void {
+    public function setUp(): void
+    {
         $response = new ProjectHoneyPotResponse('127.0.0.1', 0, 0, 30, 1, 0);
         $this->translator = new Translator();
         $this->translator->translate($response);

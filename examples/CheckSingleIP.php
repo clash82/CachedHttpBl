@@ -18,7 +18,6 @@ $adapter = new CachedHttpBL\CacheAdapter\CSV(sys_get_temp_dir().'cache.tmp');
 $cachedHttpBl = new CachedHttpBL\Client($httpbl_api_key, $adapter);
 
 try {
-
     // fetch response data from http:BL service
     $response = $cachedHttpBl->checkIP($ip);
 
@@ -45,9 +44,6 @@ try {
 
     // write cache for further usage
     $adapter->writeCache();
-
 } catch (\Exception $e) {
-
     echo sprintf('<br />Houston, we have a problem:<br /><b>%s</b>', $e->getMessage());
-
 }
