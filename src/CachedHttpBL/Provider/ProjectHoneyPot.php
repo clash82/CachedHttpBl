@@ -33,17 +33,17 @@ class ProjectHoneyPot implements Provider
 
         list($type, $activity, $threat, $typeMeaning) = explode('.', $lookupResult);
 
-        if ($type != 127) {
+        if ((int)$type != 127) {
             throw new UnexpectedResponse($ip);
         }
 
         $response = new Response\ProjectHoneyPot(
             $ip,
             time(),
-            $type,
-            $threat,
-            $typeMeaning,
-            $activity
+            (int)$type,
+            (int)$threat,
+            (int)$typeMeaning,
+            (int)$activity
         );
 
         return $response;

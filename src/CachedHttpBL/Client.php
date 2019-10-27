@@ -26,7 +26,7 @@ class Client
     /** @var \CachedHttpBL\CacheAdapter */
     private $adapter;
 
-    /** @var \CachedHttpBl\Provider */
+    /** @var \CachedHttpBL\Provider */
     private $provider;
 
     /**

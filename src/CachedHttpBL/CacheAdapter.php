@@ -13,14 +13,14 @@ interface CacheAdapter
     /**
      * Adds response to collection.
      *
-     * @param \CachedHttpBl\Response $response
+     * @param \CachedHttpBL\Response $response
      */
     public function addResponse(Response $response): void;
 
     /**
      * Checks if response exists in a collection.
      *
-     * @param $ip string IPv4 address
+     * @param string $ip IPv4 address
      * @return bool
      */
     public function responseExists(string $ip): bool;
@@ -28,9 +28,9 @@ interface CacheAdapter
     /**
      * Gets response for specific IPv4 address.
      *
-     * @param $ip string IPv4 address
-     * @return \CachedHttpBl\Response
-     * @throws \CachedHttpBl\Exception\ResponseNotExists if response was not found in a collection
+     * @param string $ip IPv4 address
+     * @return \CachedHttpBL\Response
+     * @throws \CachedHttpBL\Exception\ResponseNotExists if response was not found in a collection
      */
     public function getResponse(string $ip): Response;
 

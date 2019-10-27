@@ -9,6 +9,7 @@ use CachedHttpBL\Exception;
  */
 class ResponseNotExists extends \RuntimeException implements Exception
 {
+    /** @var string */
     private $key;
 
     public function __construct(string $key, int $code = 0, \Exception $previous = null)

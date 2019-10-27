@@ -15,9 +15,9 @@ interface Provider
     /**
      * Query http:BL service for a single IP address.
      *
-     * @param $ip string IPv4 address
-     * @return \CachedHttpBl\Response\ProjectHoneyPot
-     * @throws \CachedHttpBl\Exception\UnexpectedResponse if http:BL returns $type different than 127
+     * @param string $ip IPv4 address
+     * @return \CachedHttpBL\Response\ProjectHoneyPot
+     * @throws \CachedHttpBL\Exception\UnexpectedResponse if http:BL returns $type different than 127
      */
     public function query(string $ip): ProjectHoneyPot;
 }

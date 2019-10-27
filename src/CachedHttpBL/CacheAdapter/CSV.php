@@ -53,17 +53,21 @@ class CSV implements CacheAdapter
             ->getTimestamp();
 
         $cache = file($this->cacheFileName, FILE_SKIP_EMPTY_LINES);
+        if (!is_array($cache)) {
+            return;
+        }
+
         foreach ($cache as $line) {
             $responseData = explode(';', $line);
 
             if ($responseData[1] >= $cacheLifetimeTimestamp) { // do not load outdated data
                 $this->addResponse(new ProjectHoneyPot(
-                    long2ip($responseData[0]),
+                    long2ip((int)$responseData[0]),
                     (int) trim($responseData[1]),
-                    empty($responseData[2]) ? -1 : $responseData[2],
-                    empty($responseData[2]) ? -1 : $responseData[3],
-                    empty($responseData[2]) ? -1 : $responseData[4],
-                    empty($responseData[2]) ? -1 : $responseData[5]
+                    empty($responseData[2]) ? -1 : (int)$responseData[2],
+                    empty($responseData[2]) ? -1 : (int)$responseData[3],
+                    empty($responseData[2]) ? -1 : (int)$responseData[4],
+                    empty($responseData[2]) ? -1 : (int)$responseData[5]
                 ));
             }
         }
