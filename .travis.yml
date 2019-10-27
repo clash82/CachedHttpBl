@@ -31,6 +31,8 @@ script:
   - "php -d memory_limit=-1 vendor/bin/php-cs-fixer fix --dry-run --diff"
   - "figlet phpstan"
   - "php -d memory_limit=-1 vendor/bin/phpstan analyse src examples tests --level 7"
+  - "figlet phpmd"
+  - "php -d memory_limit=-1 vendor/bin/phpmd src text unusedcode,cleancode,controversial"
   - "figlet phpunit"
   - "php -d memory_limit=-1 vendor/bin/phpunit"
 
