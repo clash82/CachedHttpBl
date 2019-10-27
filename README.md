@@ -7,21 +7,23 @@ Cached http:BL PHP library
 [![Issue Count](https://codeclimate.com/github/clash82/CachedHttpBl/badges/issue_count.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/?branch=master)
 
-Author: [Rafał Toborek](https://toborek.info)
+Author: [Rafał Toborek](https://toborek.info/about/)
 
-Cached http:BL is a PHP >=7.2 library that allows to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
+Cached http:BL is a PHP >=7.2 library which allows you to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
 
-_Note: If you still need to support PHP 5 or PHP <7.2 version then install version 2.x. of this library._
+_Note: If you still need to support PHP 5 or PHP <7.2 version then please install version 2.x. of this library._
 
 Why use http:BL service?
 ------------------------
 
 Http:BL provides data back about the IP addresses of visitors to your website. Data is exchanged over the DNS system. You may query your local DNS server and receive a response back that indicates the type of visitor to your site, how threatening that visitor is, and how long it has been since the visitor has last been seen within the Project Honey Pot trap network.
 
+More details on how service works can be found on [an official webpage](https://www.projecthoneypot.org/httpbl.php).
+
 Why use Cached http:BL library?
 -------------------------------
 
-One of the main advantages of using CachedHttpBL library is possibility to cache http:BL responses by using cache providers. You can prepare new cache provider by implementing dedicated cache interface. Library is written in elegant objective style allowing you to extend his functionality.
+One of the biggest advantages of using CachedHttpBL library is a possibility to cache http:BL responses by using cache adapters. You can use one of the available cache adapters (CSV, Memory, BlackHole) or create a new one by implementing dedicated cache interface. Library is built in an elegant objective style allowing you to extend it's functionality.
 
 Try it!
 -------
@@ -82,9 +84,7 @@ try {
     $adapter->writeCache();
 
 } catch (\Exception $e) {
-
     echo sprintf('<br />Houston, we have a problem:<br /><b>%s</b>', $e->getMessage());
-
 }
 ```
 
@@ -101,7 +101,10 @@ Change log
 ----------
 
 [v3.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v3.0.0):
-- dropped support for PHP 5.x
+- dropped support for PHP 5.x and PHP <7.2 (please use v2.x instead),
+- added full support for PHP 7.2 and PHP 7.3 (enabled strict_types),
+- enabled Travis-CI integration for phpstan, php-cs-fixer, phpmd and phpcs,
+- fixed minor issues and adjusted coding standards.
 
 [v2.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v2.0.0):
 - added PSR-2 coding standards,
