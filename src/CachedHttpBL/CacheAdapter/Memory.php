@@ -26,7 +26,7 @@ class Memory implements CacheAdapter
 
     public function responseExists(string $ip): bool
     {
-        if (array_key_exists($ip, $this->responseCollection)) {
+        if (isset($this->responseCollection[$ip])) {
             return true;
         }
 
@@ -35,7 +35,7 @@ class Memory implements CacheAdapter
 
     public function getResponse(string $ip): Response
     {
-        if (!array_key_exists($ip, $this->responseCollection)) {
+        if (!isset($this->responseCollection[$ip])) {
             throw new ResponseNotExists($ip);
         }
 
