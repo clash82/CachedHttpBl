@@ -5,7 +5,7 @@
   "keywords": ["httpbl", "projecthoneypot", "blacklist", "spam"],
   "minimum-stability": "dev",
   "homepage": "https://github.com/clash82/cachedhttpbl",
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Rafał Toborek",
