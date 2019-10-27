@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class ProjectHoneyPotTest extends TestCase
 {
+    /** @var \CachedHttpBL\Provider */
     private $provider;
 
     public function setUp(): void

@@ -6,9 +6,12 @@ use CachedHttpBL\CacheAdapter\CSV;
 use CachedHttpBL\Response\ProjectHoneyPot as ProjectHoneyPotResponse;
 use PHPUnit\Framework\TestCase;
 
-class CVSTest extends TestCase
+class CSVTest extends TestCase
 {
+    /** @var \CachedHttpBL\CacheAdapter */
     private $adapter;
+
+    /** @var \CachedHttpBL\Response */
     private $response;
 
     public function setUp(): void

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace CachedHttpBL\Functional\CacheAdapter;
+namespace CachedHttpBL\Functional\Translator;
 
 use CachedHttpBL\Response\ProjectHoneyPot as ProjectHoneyPotResponse;
 use CachedHttpBL\Translator\ProjectHoneyPot as Translator;
@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ProjectHoneyPotTest extends TestCase
 {
+    /** @var \CachedHttpBL\Translator */
     private $translator;
 
     public function setUp(): void

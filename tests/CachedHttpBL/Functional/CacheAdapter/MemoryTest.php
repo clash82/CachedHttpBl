@@ -8,7 +8,10 @@ use PHPUnit\Framework\TestCase;
 
 class MemoryTest extends TestCase
 {
+    /** @var \CachedHttpBL\CacheAdapter */
     private $adapter;
+
+    /** @var \CachedHttpBL\Response */
     private $response;
 
     public function setUp(): void

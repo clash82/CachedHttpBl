@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class BlackHoleTest extends TestCase
 {
+    /** @var \CachedHttpBL\CacheAdapter */
     private $adapter;
 
     public function setUp(): void
