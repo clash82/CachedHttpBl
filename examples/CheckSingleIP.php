@@ -27,20 +27,28 @@ try {
 
     echo sprintf('The http:BL service was requested to get details about <b>%s</b> IP address:<br /><br />', $ip);
 
-    echo sprintf('Type code: <strong>%d</strong><br />',
-        $response->getType());
+    echo sprintf(
+        'Type code: <strong>%d</strong><br />',
+        $response->getType()
+    );
 
-    echo sprintf('Activity code: <strong>%d</strong> (<i>%s</i>)<br />',
+    echo sprintf(
+        'Activity code: <strong>%d</strong> (<i>%s</i>)<br />',
         $response->getActivity(),
-        $translator->getActivityDescription());
+        $translator->getActivityDescription()
+    );
 
-    echo sprintf('Threat code: <strong>%d</strong> (<i>%s</i>)<br />',
+    echo sprintf(
+        'Threat code: <strong>%d</strong> (<i>%s</i>)<br />',
         $response->getThreat(),
-        $translator->getThreatDescription());
+        $translator->getThreatDescription()
+    );
 
-    echo sprintf('Type meaning code: <strong>%d</strong> (<i>%s</i>)<br />',
+    echo sprintf(
+        'Type meaning code: <strong>%d</strong> (<i>%s</i>)<br />',
         $response->getTypeMeaning(),
-        $translator->getTypeMeaningDescription());
+        $translator->getTypeMeaningDescription()
+    );
 
     // write cache for further usage
     $adapter->writeCache();
