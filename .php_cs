@@ -25,6 +25,5 @@ return PhpCsFixer\Config::create()
         'yoda_style' => false,
         'no_break_comment' => false,
     ])
-    ->setLineEnding("\r\n")
     ->setFinder($finder)
 ;

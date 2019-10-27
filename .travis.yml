@@ -1,7 +1,10 @@
 language: php
 
-sudo: false
+sudo: true
 
+cache:
+  directories:
+    - $HOME/.composer/cache
 php:
   - 7.2
   - 7.3
@@ -12,6 +15,8 @@ branches:
     - dev
 
 before_script:
+  # install figlet
+  - sudo apt-get install figlet
   # disable xdebug
   - phpenv config-rm xdebug.ini
   # update composer to newest version
@@ -21,7 +26,13 @@ before_script:
   # install packages using composer
   - composer install --prefer-dist
 
-script: "php -d memory_limit=-1 vendor/bin/phpunit"
+script:
+  - "figlet php-cs-fixer"
+  - "php -d memory_limit=-1 vendor/bin/php-cs-fixer fix --dry-run --diff"
+  - "figlet phpstan"
+  - "php -d memory_limit=-1 vendor/bin/phpstan analyse src examples tests --level 7"
+  - "figlet phpunit"
+  - "php -d memory_limit=-1 vendor/bin/phpunit"
 
 # disable mail notifications
 notifications:
