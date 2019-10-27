@@ -33,6 +33,8 @@ script:
   - "php -d memory_limit=-1 vendor/bin/phpstan analyse src examples tests --level 7"
   - "figlet phpmd"
   - "php -d memory_limit=-1 vendor/bin/phpmd src text unusedcode,cleancode,controversial"
+  - "figlet phpcs"
+  - "php -d memory_limit=-1 vendor/bin/phpcs src examples tests --standard=PSR2 -p -n"
   - "figlet phpunit"
   - "php -d memory_limit=-1 vendor/bin/phpunit"
 
