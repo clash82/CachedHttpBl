@@ -29,15 +29,15 @@ class Client
     private $provider;
 
     /**
-     * Constructs ProjectHoneyPot object client.
+     * Constructs client.
      *
-     * @param string $httpBlApiKey
+     * @param \CachedHttpBL\Provider $provider
      * @param \CachedHttpBL\CacheAdapter $adapter
      */
-    public function __construct(string $httpBlApiKey, CacheAdapter $adapter)
+    public function __construct(Provider $provider, CacheAdapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->provider = new ProjectHoneyPotProvider($httpBlApiKey);
+        $this->provider = $provider;
     }
 
     /**
