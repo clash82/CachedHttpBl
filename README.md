@@ -1,13 +1,17 @@
 Cached http:BL PHP library
 ==========================
 
-[![Build Status](https://travis-ci.org/clash82/CachedHttpBl.svg?branch=master)](https://travis-ci.org/clash82/CachedHttpBl)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/72582f01-525e-48cb-8f87-10b45b903d9c/mini.png)](https://insight.sensiolabs.com/projects/72582f01-525e-48cb-8f87-10b45b903d9c)
+![phpunit](https://github.com/clash82/CachedHttpBl/actions/workflows/phpunit.yaml/badge.svg)
+![phpcs](https://github.com/clash82/CachedHttpBl/actions/workflows/phpcs.yaml/badge.svg)
+![php-cs-fixer](https://github.com/clash82/CachedHttpBl/actions/workflows/php-cs-fixer.yaml/badge.svg)
+![phpstan](https://github.com/clash82/CachedHttpBl/actions/workflows/phpstan.yaml/badge.svg)
+![phpmd](https://github.com/clash82/CachedHttpBl/actions/workflows/phpmd.yaml/badge.svg)
+
 [![Code Climate](https://codeclimate.com/github/clash82/CachedHttpBl/badges/gpa.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
 [![Issue Count](https://codeclimate.com/github/clash82/CachedHttpBl/badges/issue_count.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/?branch=master)
 
-Author: [Rafał Toborek](https://toborek.info/about/)
+Author: [Rafał Toborek](https://kontakt.toborek.info)
 
 Cached http:BL is a PHP >=7.2 library which allows you to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
 
