@@ -16,8 +16,8 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macOS-latest]
-        php-versions: ['7.2']
-    name: Run PHPUnit on PHP ${{ matrix.php-versions }} / ${{ matrix.operating-system }}
+        php-versions: ['8.1']
+    name: running on ${{ matrix.operating-system }} / PHP v${{ matrix.php-versions }}
 
     steps:
       - uses: actions/checkout@v3

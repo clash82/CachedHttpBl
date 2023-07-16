@@ -1,4 +1,4 @@
-name: phpstan
+name: rector
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
       - master
 
 jobs:
-  phpstan:
+  rector:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
@@ -36,5 +36,5 @@ jobs:
       - name: Install Composer dependencies
         run: composer install -o
 
-      - name: Run phpstan tool
-        run: vendor/bin/phpstan analyse src tests --level 7
+      - name: Run Rector
+        run: vendor/bin/rector process src --dry-run
