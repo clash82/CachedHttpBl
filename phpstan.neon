@@ -1,2 +1,3 @@
 parameters:
-	bootstrap: tests/bootstrap.php.dist
+    bootstrapFiles:
+        - tests/bootstrap.php.dist
