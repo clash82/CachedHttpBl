@@ -10,6 +10,16 @@ use CachedHttpBL\Translator;
  */
 class ProjectHoneyPotTranslator implements Translator
 {
+    private const TYPE_MEANING_DESCRIPTION = [
+        0 => 'Search Engine',
+        1 => 'Suspicious',
+        2 => 'Harvester',
+        4 => 'Comment Spammer',
+        5 => 'Suspicious & Comment Spammer',
+        6 => 'Harvester & Comment Spammer',
+        7 => 'Suspicious & Harvester & Comment Spammer',
+    ];
+
     private Response $response;
 
     public function translate(Response $response): void
@@ -41,17 +51,46 @@ class ProjectHoneyPotTranslator implements Translator
 
     public function getTypeMeaningDescription(): string
     {
-        $message = 'Unknown';
+        return self::TYPE_MEANING_DESCRIPTION[$this->response->getTypeMeaning()] ?? 'Unknown';
+    }
 
-        return match ($this->response->getTypeMeaning()) {
-            0 => 'Search Engine',
-            1 => 'Suspicious',
-            2 => 'Harvester',
-            4 => 'Comment Spammer',
-            5 => 'Suspicious & Comment Spammer',
-            6 => 'Harvester & Comment Spammer',
-            7 => 'Suspicious & Harvester & Comment Spammer',
-            default => $message,
-        };
+    public function isUnknownType(): bool
+    {
+        return !isset(self::TYPE_MEANING_DESCRIPTION[$this->response->getTypeMeaning()]);
+    }
+
+    public function isSearchEngineType(): bool
+    {
+        return $this->response->getTypeMeaning() === 0;
+    }
+
+    public function isSuspiciousType(): bool
+    {
+        return $this->response->getTypeMeaning() === 1;
+    }
+
+    public function isHarvesterType(): bool
+    {
+        return $this->response->getTypeMeaning() === 2;
+    }
+
+    public function isCommentSpammerType(): bool
+    {
+        return $this->response->getTypeMeaning() === 4;
+    }
+
+    public function isSuspiciousAndCommentSpammerType(): bool
+    {
+        return $this->response->getTypeMeaning() === 5;
+    }
+
+    public function isHarvesterAndCommentSpammerType(): bool
+    {
+        return $this->response->getTypeMeaning() === 6;
+    }
+
+    public function isSuspiciousAndHarvesterAndCommentSpammerType(): bool
+    {
+        return $this->response->getTypeMeaning() === 7;
     }
 }
