@@ -2,12 +2,11 @@
 
 namespace CachedHttpBL;
 
-use CachedHttpBL\Response\ProjectHoneyPot;
+use CachedHttpBL\Exception\UnexpectedResponseException;
+use CachedHttpBL\Response\ProjectHoneyPotResponse;
 
 /**
  * Interface for the CachedHttpBL service provider.
- *
- * @author Rafał Toborek
  */
 interface Provider
 {
@@ -15,8 +14,8 @@ interface Provider
      * Query http:BL service for a single IP address.
      *
      * @param string $ip IPv4 address
-     * @return \CachedHttpBL\Response\ProjectHoneyPot
-     * @throws \CachedHttpBL\Exception\UnexpectedResponse if http:BL returns $type different than 127
+     *
+     * @throws UnexpectedResponseException if http:BL returns $type different from 127
      */
-    public function query(string $ip): ProjectHoneyPot;
+    public function query(string $ip): ProjectHoneyPotResponse;
 }

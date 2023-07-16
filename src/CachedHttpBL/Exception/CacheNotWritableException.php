@@ -7,15 +7,10 @@ use CachedHttpBL\Exception;
 /**
  * Exception to be thrown when cache is not writable.
  */
-class CacheNotWritable extends \RuntimeException implements Exception
+class CacheNotWritableException extends \RuntimeException implements Exception
 {
-    /** @var string */
-    private $key;
-
-    public function __construct(string $key, int $code = 0, \Exception $previous = null)
+    public function __construct(private readonly string $key, int $code = 0, \Exception $previous = null)
     {
-        $this->key = $key;
-
         parent::__construct(
             sprintf('There was an error while trying write to `%s`', $key),
             $code,

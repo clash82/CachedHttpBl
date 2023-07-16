@@ -2,17 +2,15 @@
 
 namespace CachedHttpBL;
 
+use CachedHttpBL\Exception\ResponseNotExistsException;
+
 /**
  * Interface for the CachedHttpBL cache adapter.
- *
- * @author Rafał Toborek
  */
 interface CacheAdapter
 {
     /**
      * Adds response to collection.
-     *
-     * @param \CachedHttpBL\Response $response
      */
     public function addResponse(Response $response): void;
 
@@ -20,7 +18,6 @@ interface CacheAdapter
      * Checks if response exists in a collection.
      *
      * @param string $ip IPv4 address
-     * @return bool
      */
     public function responseExists(string $ip): bool;
 
@@ -28,8 +25,8 @@ interface CacheAdapter
      * Gets response for specific IPv4 address.
      *
      * @param string $ip IPv4 address
-     * @return \CachedHttpBL\Response
-     * @throws \CachedHttpBL\Exception\ResponseNotExists if response was not found in a collection
+     *
+     * @throws ResponseNotExistsException if response was not found in a collection
      */
     public function getResponse(string $ip): Response;
 
