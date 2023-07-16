@@ -115,6 +115,7 @@ Change log
 [v4.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v4.0.0):
 - dropped support for PHP <8.1 (use v3.x instead),
 - Travis-CI integration was replaced with GitHub Actions,
+- added logical operator `is` for `Translator` class type meanings (eg. `isHarversterType()`, `isUnknownType()`, etc.),
 - code refactor and upgrades.
 
 [v3.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v3.0.0):

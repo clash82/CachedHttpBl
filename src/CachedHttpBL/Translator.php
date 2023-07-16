@@ -26,4 +26,9 @@ interface Translator
      * Returns IP short type meaning description.
      */
     public function getTypeMeaningDescription(): string;
+
+    /**
+     * Check if type was recognized.
+     */
+    public function isUnknownType(): bool;
 }
