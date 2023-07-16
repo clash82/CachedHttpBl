@@ -6,16 +6,13 @@ Cached http:BL PHP library
 ![php-cs-fixer](https://github.com/clash82/CachedHttpBl/actions/workflows/php-cs-fixer.yaml/badge.svg)
 ![phpstan](https://github.com/clash82/CachedHttpBl/actions/workflows/phpstan.yaml/badge.svg)
 ![phpmd](https://github.com/clash82/CachedHttpBl/actions/workflows/phpmd.yaml/badge.svg)
-
-[![Code Climate](https://codeclimate.com/github/clash82/CachedHttpBl/badges/gpa.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
-[![Issue Count](https://codeclimate.com/github/clash82/CachedHttpBl/badges/issue_count.svg)](https://codeclimate.com/github/clash82/CachedHttpBl)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/clash82/CachedHttpBl/?branch=master)
+![rector](https://github.com/clash82/CachedHttpBl/actions/workflows/rector.yaml/badge.svg)
 
 Author: [Rafał Toborek](https://kontakt.toborek.info)
 
-Cached http:BL is a PHP >=7.2 library which allows you to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
+Cached http:BL is a PHP >=v8.1 library which allows you to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
 
-_Note: If you still need to support PHP 5 or PHP <7.2 version then please install version 2.x. of this library._
+_Note: If you still need to support PHP 5.x or PHP <7.2 then install version 2.x. For PHP >=7.2 install version 3.x._
 
 Why use http:BL service?
 ------------------------
@@ -35,60 +32,71 @@ Try it!
 Stable version:
 
 ```bash
-$ php composer.phar require clash82/cachedhttpbl:3.*
+$ composer require clash82/cachedhttpbl:4.*
 ```
 
-Here is an example of how to use library with CSV cache adapter:
+Here is an example (CLI script) of how to use library with CSV cache adapter:
 
 ```php
-// suspicious IP address
+<?php
+
+// suspicious IP address (fill this with the IP address you want to check)
 $ip = '';
 
 // valid http:BL API key (you can create one at http:BL dashboard)
-// please, keep it mind that there's no way to validate this key, so make
+// keep it mind that there's no way to validate this key, so make
 // sure you have entered a valid key
-$httpbl_api_key = '';
+$httpblApiKey = '';
 
 // we are using namespace autoloader
-require_once '../vendor/autoload.php';
+require_once 'CachedHttpBl/vendor/autoload.php';
 
-// setup a new storage adapter
-$adapter = new CachedHttpBL\CacheAdapter\CSV(sys_get_temp_dir().'cache.tmp');
+// create a new storage adapter
+$adapter = new CachedHttpBL\CacheAdapter\CSVCacheAdapter(sys_get_temp_dir().'/httpbl_cache.csv');
+
+// create a new provider
+$provider = new CachedHttpBL\Provider\ProjectHoneyPotProvider($httpblApiKey);
 
 // setup library class
-$cachedHttpBl = new CachedHttpBL\Client($httpbl_api_key, $adapter);
+$cachedHttpBl = new CachedHttpBL\Client($provider, $adapter);
 
 try {
-
     // fetch response data from http:BL service
     $response = $cachedHttpBl->checkIP($ip);
 
-    // we'll use an additional translator to output more details about response (useful, but not required)
-    $translator = new CachedHttpBL\Translator\ProjectHoneyPot();
+    // additional translator to output more details about the Response (useful, but not required)
+    $translator = new CachedHttpBL\Translator\ProjectHoneyPotTranslator();
     $translator->translate($response);
 
-    echo sprintf('The http:BL service was requested to get details about <b>%s</b> IP address:<br /><br />', $ip);
+    printf('The http:BL service was requested to get details about %s IP address:'.\PHP_EOL.\PHP_EOL, $ip);
 
-    echo sprintf('Type code: <strong>%d</strong><br />',
-        $response->getType());
+    printf(
+        'Type code: %d'.\PHP_EOL,
+        $response->getType()
+    );
 
-    echo sprintf('Activity code: <strong>%d</strong> (<i>%s</i>)<br />',
+    printf(
+        'Activity code: %d (%s)'.\PHP_EOL,
         $response->getActivity(),
-        $translator->getActivityDescription());
+        $translator->getActivityDescription()
+    );
 
-    echo sprintf('Threat code: <strong>%d</strong> (<i>%s</i>)<br />',
+    printf(
+        'Threat code: %d (%s)'.\PHP_EOL,
         $response->getThreat(),
-        $translator->getThreatDescription());
+        $translator->getThreatDescription()
+    );
 
-    echo sprintf('Type meaning code: <strong>%d</strong> (<i>%s</i>)<br />',
+    printf(
+        'Type meaning code: %d (%s)'.\PHP_EOL,
         $response->getTypeMeaning(),
-        $translator->getTypeMeaningDescription());
+        $translator->getTypeMeaningDescription()
+    );
 
     // write cache for further usage
     $adapter->writeCache();
-
 } catch (\Exception $e) {
-    echo sprintf('<br />Houston, we have a problem:<br /><b>%s</b>', $e->getMessage());
+    printf('Something went wrong or no details about the given IP address were found: %s', $e->getMessage());
 }
 ```
 
@@ -98,14 +106,19 @@ Launch the Test Suite
 In the CachedHttpBL directory:
 
 ```bash
-$ phpunit
+$ vendor/bin/phpunit
 ```
 
 Change log
 ----------
 
+[v4.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v4.0.0):
+- dropped support for PHP <8.1 (use v3.x instead),
+- Travis-CI integration was replaced with GitHub Actions,
+- code refactor and upgrades.
+
 [v3.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v3.0.0):
-- dropped support for PHP 5.x and PHP <7.2 (please use v2.x instead),
+- dropped support for PHP 5.x and PHP <7.2 (use v2.x instead),
 - added full support for PHP 7.2 and PHP 7.3 (enabled strict_types),
 - enabled Travis-CI integration for phpstan, php-cs-fixer, phpmd and phpcs,
 - fixed minor issues and adjusted coding standards.
@@ -121,3 +134,5 @@ Change log
 
 v1.0.0:
 - initial release.
+
+Jezus żyje! 🧡
