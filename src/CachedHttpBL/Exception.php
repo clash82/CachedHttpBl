@@ -4,8 +4,6 @@ namespace CachedHttpBL;
 
 /**
  * Interface for the CachedHttpBL related exceptions.
- *
- * @author Rafał Toborek
  */
 interface Exception
 {

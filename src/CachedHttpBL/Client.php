@@ -2,8 +2,6 @@
 
 namespace CachedHttpBL;
 
-use CachedHttpBL\Provider\ProjectHoneyPot as ProjectHoneyPotProvider;
-
 /**
  * Cached http:BL PHP library.
  *
@@ -11,39 +9,27 @@ use CachedHttpBL\Provider\ProjectHoneyPot as ProjectHoneyPotProvider;
  * for more information about http:BL service visit project's home page at:
  * @link https://www.projecthoneypot.org
  *
- * @version 3.0.0
+ * @version 4.0.0
  * @author Rafał Toborek
- * @link https://toborek.info/about/
- * @link https://github.com/clash82/cachedHttpBl/
+ * @link https://kontakt.toborek.info
+ * @link https://github.com/clash82/CachedHttpBl
  * @license https://www.gnu.org/licenses/gpl-3.0.txt
  */
 class Client
 {
-    /** @var string */
-    private $version = '3.0.0';
-
-    /** @var \CachedHttpBL\CacheAdapter */
-    private $adapter;
-
-    /** @var \CachedHttpBL\Provider */
-    private $provider;
+    private string $version = '4.0.0';
 
     /**
      * Constructs ProjectHoneyPot object client.
-     *
-     * @param string $httpBlApiKey
-     * @param \CachedHttpBL\CacheAdapter $adapter
      */
-    public function __construct(string $httpBlApiKey, CacheAdapter $adapter)
-    {
-        $this->adapter = $adapter;
-        $this->provider = new ProjectHoneyPotProvider($httpBlApiKey);
+    public function __construct(
+        private readonly Provider $provider,
+        private readonly CacheAdapter $adapter
+    ) {
     }
 
     /**
      * Reports library version.
-     *
-     * @return string
      */
     public function getVersion(): string
     {
@@ -53,8 +39,7 @@ class Client
     /**
      * Checks single IP address.
      *
-     * @param string $ip
-     * @return \CachedHttpBL\Response
+     * @param string $ip IPv4 address
      */
     public function checkIP(string $ip): Response
     {

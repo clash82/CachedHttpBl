@@ -3,19 +3,17 @@
 namespace CachedHttpBL\CacheAdapter;
 
 use CachedHttpBL\CacheAdapter;
-use CachedHttpBL\Exception\ResponseNotExists;
+use CachedHttpBL\Exception\ResponseNotExistsException;
 use CachedHttpBL\Response;
 
 /**
  * In memory cache adapter.
  * (this adapter prevents using caching).
- *
- * @author Rafał Toborek
  */
-class Memory implements CacheAdapter
+class MemoryCacheAdapter implements CacheAdapter
 {
-    /** @var array */
-    private $responseCollection = [];
+    /** @var array<string, Response> */
+    private array $responseCollection = [];
 
     public function addResponse(Response $response): void
     {
@@ -25,17 +23,13 @@ class Memory implements CacheAdapter
 
     public function responseExists(string $ip): bool
     {
-        if (isset($this->responseCollection[$ip])) {
-            return true;
-        }
-
-        return false;
+        return isset($this->responseCollection[$ip]);
     }
 
     public function getResponse(string $ip): Response
     {
         if (!isset($this->responseCollection[$ip])) {
-            throw new ResponseNotExists($ip);
+            throw new ResponseNotExistsException($ip);
         }
 
         return $this->responseCollection[$ip];

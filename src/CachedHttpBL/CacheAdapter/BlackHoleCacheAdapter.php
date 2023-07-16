@@ -3,15 +3,13 @@
 namespace CachedHttpBL\CacheAdapter;
 
 use CachedHttpBL\CacheAdapter;
-use CachedHttpBL\Exception\ResponseNotExists;
+use CachedHttpBL\Exception\ResponseNotExistsException;
 use CachedHttpBL\Response;
 
 /**
  * BlackHole cache adapter.
- *
- * @author Rafał Toborek
  */
-class BlackHole implements CacheAdapter
+class BlackHoleCacheAdapter implements CacheAdapter
 {
     public function addResponse(Response $response): void
     {
@@ -25,7 +23,7 @@ class BlackHole implements CacheAdapter
 
     public function getResponse(string $ip): Response
     {
-        throw new ResponseNotExists($ip);
+        throw new ResponseNotExistsException($ip);
     }
 
     public function clearCache(): void
