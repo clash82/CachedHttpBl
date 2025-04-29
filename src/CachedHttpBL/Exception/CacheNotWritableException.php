@@ -9,7 +9,7 @@ use CachedHttpBL\Exception;
  */
 class CacheNotWritableException extends \RuntimeException implements Exception
 {
-    public function __construct(private readonly string $key, int $code = 0, \Exception $previous = null)
+    public function __construct(private readonly string $key, int $code = 0, ?\Exception $previous = null)
     {
         parent::__construct(
             \sprintf('There was an error while trying write to `%s`', $key),
