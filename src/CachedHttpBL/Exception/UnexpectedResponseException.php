@@ -9,7 +9,7 @@ use CachedHttpBL\Exception;
  */
 class UnexpectedResponseException extends \RuntimeException implements Exception
 {
-    public function __construct(private readonly string $key, int $code = 0, \Exception $previous = null)
+    public function __construct(private readonly string $key, int $code = 0, ?\Exception $previous = null)
     {
         parent::__construct(
             \sprintf('Unexpected response was returned for %s IP address', $key),

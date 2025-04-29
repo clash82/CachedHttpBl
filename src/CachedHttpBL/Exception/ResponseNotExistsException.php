@@ -9,7 +9,7 @@ use CachedHttpBL\Exception;
  */
 class ResponseNotExistsException extends \RuntimeException implements Exception
 {
-    public function __construct(private readonly string $key, int $code = 0, \Exception $previous = null)
+    public function __construct(private readonly string $key, int $code = 0, ?\Exception $previous = null)
     {
         parent::__construct(
             \sprintf('Response for %s IP address was not found in collection', $key),
