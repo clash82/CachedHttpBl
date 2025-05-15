@@ -10,7 +10,7 @@ use CachedHttpBL\Translator;
  */
 class ProjectHoneyPotTranslator implements Translator
 {
-    private const TYPE_MEANING_DESCRIPTION = [
+    private const array TYPE_MEANING_DESCRIPTION = [
         0 => 'Search Engine',
         1 => 'Suspicious',
         2 => 'Harvester',
@@ -29,7 +29,7 @@ class ProjectHoneyPotTranslator implements Translator
 
     public function getActivityDescription(): string
     {
-        return sprintf('last seen %d day(s) ago', $this->response->getActivity());
+        return \sprintf('last seen %d day(s) ago', $this->response->getActivity());
     }
 
     public function getThreatDescription(): string
