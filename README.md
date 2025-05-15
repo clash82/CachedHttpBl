@@ -10,7 +10,7 @@ Cached http:BL PHP library
 
 Author: [Rafał Toborek](https://kontakt.toborek.info)
 
-Cached http:BL is a PHP >=v8.1 library which allows you to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
+Cached http:BL is a PHP >=v8.3 library which allows you to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.
 
 _Note: If you still need to support PHP 5.x or PHP <7.2 then install version 2.x. For PHP >=7.2 install version 3.x._
 
@@ -111,6 +111,9 @@ $ vendor/bin/phpunit
 
 Change log
 ----------
+
+[v4.1.0](https://github.com/clash82/CachedHttpBl/releases/tag/v4.1.0):
+- dropped support for PHP <8.3.
 
 [v4.0.0](https://github.com/clash82/CachedHttpBl/releases/tag/v4.0.0):
 - dropped support for PHP <8.1 (use v3.x instead),

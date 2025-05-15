@@ -11,7 +11,7 @@ use CachedHttpBL\Response as Response;
  */
 class ProjectHoneyPotProvider implements Provider
 {
-    final public const TYPE_SUCCESS = 127;
+    final public const int TYPE_SUCCESS = 127;
 
     /**
      * Constructs ProjectHoneyPot client service.

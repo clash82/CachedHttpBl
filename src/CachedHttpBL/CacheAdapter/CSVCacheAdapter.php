@@ -58,14 +58,14 @@ class CSVCacheAdapter implements CacheAdapter
         $responseData = '';
 
         foreach ($this->responseCollection as $response) {
-            $responseEntry = sprintf(
+            $responseEntry = \sprintf(
                 '%d;%d'.\PHP_EOL,
                 ip2long($response->getIP()),
                 $response->getTime()
             );
 
             if ($response->getType() === ProjectHoneyPotProvider::TYPE_SUCCESS) {
-                $responseEntry = sprintf(
+                $responseEntry = \sprintf(
                     '%d;%d;%d;%d;%d;%d'.\PHP_EOL,
                     ip2long($response->getIP()),
                     $response->getTime(),
@@ -94,7 +94,7 @@ class CSVCacheAdapter implements CacheAdapter
         }
 
         $cacheLifetimeTimestamp = (new DateTime())
-            ->modify(sprintf('-%d hours', $this->cacheLifeTimeInHours))
+            ->modify(\sprintf('-%d hours', $this->cacheLifeTimeInHours))
             ->getTimestamp();
 
         $cache = file($this->cacheFileName, \FILE_SKIP_EMPTY_LINES);

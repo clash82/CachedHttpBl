@@ -19,7 +19,7 @@ class ProjectHoneyPotTranslatorTest extends TestCase
 
     public function testActivityDescriptionShouldNotBeEmpty(): void
     {
-        $this->assertSame(sprintf('last seen %d day(s) ago', 0), $this->translator->getActivityDescription());
+        $this->assertSame(\sprintf('last seen %d day(s) ago', 0), $this->translator->getActivityDescription());
     }
 
     public function testThreatDescriptionShouldNotBeEmpty(): void
