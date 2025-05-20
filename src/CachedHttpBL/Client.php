@@ -9,7 +9,7 @@ namespace CachedHttpBL;
  * for more information about http:BL service visit project's home page at:
  * @link https://www.projecthoneypot.org
  *
- * @version 4.0.0
+ * @version 4.2.0
  * @author Rafał Toborek
  * @link https://kontakt.toborek.info
  * @link https://github.com/clash82/CachedHttpBl
@@ -17,7 +17,7 @@ namespace CachedHttpBL;
  */
 class Client
 {
-    private string $version = '4.0.0';
+    private string $version = '4.2.0';
 
     /**
      * Constructs ProjectHoneyPot object client.
