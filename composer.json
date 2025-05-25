@@ -26,5 +26,8 @@
   },
   "autoload": {
     "psr-0": { "CachedHttpBL": "src/" }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }

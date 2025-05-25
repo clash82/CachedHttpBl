@@ -32,7 +32,7 @@ Try it!
 Stable version:
 
 ```bash
-$ composer require clash82/cachedhttpbl:4.*
+composer require clash82/cachedhttpbl:4.*
 ```
 
 Here is an example (CLI script) of how to use library with CSV cache adapter:
@@ -89,7 +89,7 @@ Launch the Test Suite
 In the CachedHttpBL directory:
 
 ```bash
-$ vendor/bin/phpunit
+composer test
 ```
 
 Change log
