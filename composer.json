@@ -2,12 +2,18 @@
   "name": "clash82/cachedhttpbl",
   "type": "library",
   "description": "Cached http:BL is a PHP >=8.3 library that allows to check IPv4 address with `Project HoneyPot's http:BL service` to determine if it's located on the blacklist.",
-  "keywords": ["httpbl", "projecthoneypot", "blacklist", "spam"],
+  "keywords": [
+    "httpbl",
+    "projecthoneypot",
+    "blacklist",
+    "spam"
+  ],
   "homepage": "https://github.com/clash82/cachedhttpbl",
   "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Rafał Toborek",
+      "role": "Developer",
       "homepage": "https://kontakt.toborek.info"
     }
   ],
@@ -25,7 +31,9 @@
   "suggest": {
   },
   "autoload": {
-    "psr-0": { "CachedHttpBL": "src/" }
+    "psr-0": {
+      "CachedHttpBL": "src/"
+    }
   },
   "scripts": {
     "test": "vendor/bin/phpunit"
